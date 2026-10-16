@@ -60,6 +60,9 @@ jobs:
       - name: Build Types
         run: pnpm run build:types
 
+      - name: Test message decoders
+        run: pnpm run test:messages
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:

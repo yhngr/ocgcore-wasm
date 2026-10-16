@@ -510,6 +510,8 @@ export interface OcgMessageMove {
   card: number;
   from: OcgLocPos;
   to: OcgLocPos;
+  /** REASON_* flags of the move. */
+  reason: number;
 }
 
 export interface OcgMessagePosChange {

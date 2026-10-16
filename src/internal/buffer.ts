@@ -39,6 +39,7 @@ export class BufferReader {
       this.view.byteOffset + this.off,
       this.view.byteOffset + this.off + length
     );
+    this.off += length;
     return new Uint8Array(bytes);
   }
   u8(): number {

@@ -41,6 +41,7 @@
     "clear:tests": "rm -rf tests/dist/*.js tests/*.js.map",
     "build:tests": "esbuild ./tests/test.ts --analyze --bundle --platform=node --loader:.wasm=binary --format=esm --target=es2020 --external:node-sqlite3-wasm --splitting --minify --sourcemap --outdir=tests/dist",
     "start:tests": "npm run build:tests && node --enable-source-maps --experimental-wasm-jspi tests/dist/test.js",
+    "test:messages": "esbuild ./tests/messages.test.ts --bundle --platform=node --format=esm --target=es2020 --outfile=tests/dist/messages.test.mjs && node --test tests/dist/messages.test.mjs",
     "build:types": "tsc --project tsconfig.types.json && api-extractor run",
     "build": "npm run build:emscripten && npm run build:lib && npm run build:types"
   },

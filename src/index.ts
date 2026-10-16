@@ -435,6 +435,12 @@ function createMethodsBase(
           // TODO: handle parse errors?
           continue;
         }
+        if (subReader.avail !== 0) {
+          // The decoder of this message type does not match the core layout.
+          console.warn(
+            `message ${message.type} not fully read: ${subReader.avail} of ${length} bytes left`,
+          );
+        }
         messages.push(message);
       }
 
